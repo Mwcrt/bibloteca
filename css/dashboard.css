@@ -1,0 +1,226 @@
+/* Estilos para que el contenido esté en la parte superior, centrado horizontalmente */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 20px 0;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Estilo para cada letra dentro del mensaje de bienvenida */
+.letter {
+    display: inline-block; /* Necesario para que cada letra se trate de manera independiente */
+    font-weight: bold;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #bc09e0, #a50f61, #960736, #d90be0); /* Degradado de colores */
+    -webkit-background-clip: text; /* Esto recorta el fondo dentro del texto */
+    background-clip: text; /* Para que el degradado solo se vea dentro del texto */
+    color: transparent; /* Hacemos el texto transparente para que el fondo sea visible */
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Efecto de temblor en cada letra individual */
+.letter:hover {
+    animation: shake 0.5s infinite;
+}
+
+/* Definir la animación de temblor */
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Estilos para el contenedor de deslizamiento */
+.slider-container {
+    width: 100%;
+    height: 250px; /* Ajusta la altura */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    animation: slide 15s linear infinite; /* Animación para mover los libros */
+}
+
+.slider img {
+    max-height: 200px; /* Ajusta el tamaño de las imágenes */
+    margin-right: 15px;
+    transition: transform 0.3s ease; /* Efecto de hover */
+}
+
+.slider img:hover {
+    transform: scale(1.1);
+}
+
+/* Animación de desplazamiento horizontal */
+@keyframes slide {
+    0% {
+        transform: translateX(0); /* Empieza desde la posición inicial */
+    }
+    100% {
+        transform: translateX(-100%); /* Desplázate completamente fuera del contenedor */
+    }
+}
+
+/* General styling for the about-us container */
+.about-us-container {
+    background: linear-gradient(135deg, #8e44ad, #3498db);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    border-radius: 10px;
+    padding: 40px;
+    width: 80%;
+    margin: 40px auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-out;
+    text-align: center;
+}
+
+/* Animation for fadeIn effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* General styling for the about-us container */
+.about-us-container {
+    background: linear-gradient(135deg, #850731, #9c2661);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    border-radius: 15px;
+    padding: 50px;
+    width: 80%;
+    margin: 40px auto;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1.5s ease-out;
+    text-align: center;
+    transform: scale(0.98);
+}
+
+/* New and improved fade-in animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for the heading */
+.about-us-container h2 {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #f39c12;
+    animation: slideIn 1.2s ease-out;
+}
+
+/* Slide-in animation for the heading */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Styling for the paragraph text */
+.about-us-container p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 20px auto;
+    color: #ecf0f1;
+    animation: fadeInText 1.5s ease-out;
+}
+
+/* Fade-in animation for paragraphs */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for strong text (Library) */
+.about-us-container strong {
+    color: #f39c12;
+    font-weight: bold;
+    animation: pulseText 2s infinite;
+}
+
+/* Pulse effect on the word "Library" */
+@keyframes pulseText {
+    0% {
+        transform: scale(1);
+        color: #f39c12;
+    }
+    50% {
+        transform: scale(1.1);
+        color: #f1c40f;
+    }
+    100% {
+        transform: scale(1);
+        color: #f39c12;
+    }
+}
+
+/* Hover effect for the entire container */
+.about-us-container:hover {
+    background: linear-gradient(135deg, #9c2661, #850731);
+    transform: scale(1.02);
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
