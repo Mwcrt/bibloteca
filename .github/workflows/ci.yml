@@ -22,7 +22,11 @@ jobs:
           MYSQL_PASSWORD: root
         ports:
           - 3306:3306
-        options: --health-cmd="mysqladmin ping -h localhost --silent" --health-interval=10s --health-timeout=5s --health-retries=3
+        options: > 
+          --health-cmd="mysqladmin ping -uroot -proot -h localhost || exit 1" 
+          --health-interval=10s 
+          --health-timeout=5s 
+          --health-retries=5
 
     env:
       DB_HOST: 127.0.0.1
@@ -39,6 +43,13 @@ jobs:
       with:
         php-version: '8.1'
         extensions: mysqli, pdo_mysql
+
+    - name: Wait for MySQL to be ready
+      run: sleep 20
+
+    - name: Import database
+      run: |
+        mysql -u root -proot library < database_dump.sql
 
     - name: Install Composer dependencies
       run: composer install
