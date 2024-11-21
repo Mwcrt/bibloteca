@@ -1,0 +1,427 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5; 
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.main-container {
+    margin-top: 40px;
+    padding: 0 20px;
+    text-align: center;
+    padding-bottom: 150px;
+}
+
+/* Título principal */
+.titulo {
+    font-size: 3.2rem; 
+    font-weight: 700; 
+    color: #2c3e50; 
+    margin-bottom: 30px; 
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 6px; 
+    display: inline-block;
+    padding: 12px 20px;
+    background: linear-gradient(360deg, #850731, #9c2661);
+    color: white;
+    border-radius: 8px; 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12); 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Línea decorativa bajo el título */
+.titulo::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: #a80032;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    border-radius: 5px; 
+}
+
+/* Efecto hover para el título */
+.titulo:hover {
+    transform: translateY(-6px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Introducción */
+.introduccion {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #555555; 
+    margin: 0 25px 40px; 
+    padding: 18px 24px; 
+    border-radius: 10px;
+    background-color: #f8f9fa; 
+    text-align: justify;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para la introducción */
+.introduccion:hover {
+    background-color: #ecf0f1; 
+}
+
+/* Libros disponibles */
+.disponibles {
+    width: 50%;
+    font-size: 1.7rem; 
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 35px;
+    margin-left: 25%;
+    padding: 10px; 
+    background-color: #ad1d71; 
+    border-radius: 10px;
+    align-content: center;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #ad1d71; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    font-family: 'Helvetica', sans-serif;
+}
+
+/* Efecto hover para los libros disponibles */
+.disponibles:hover {
+    background-color: #7c0e45; 
+    transform: scale(1.05); 
+}
+
+/* Animación de pulso para los libros disponibles */
+@keyframes available-animation {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
+
+/* Aplicación de la animación */
+.disponibles {
+    animation: available-animation 2s ease-in-out infinite;
+}
+
+/* Contenedor de libros (layout flexible) */
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(5, 10fr);
+    grid-gap: 40px;
+    margin-top: 20px;
+    justify-items: center;
+}
+
+@media (max-width: 1024px) {
+    .books-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .books-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .books-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilo de cada libro */
+.book {
+    border: 1px solid red; 
+    border-radius: 0;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgb(0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.10s ease, box-shadow 0.10s ease;
+}
+
+.book:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.book img {
+    width: 100%; 
+    height: 300px; 
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.book img:hover {
+    transform: scale(1.05);
+}
+
+.book h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.book p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin: 8px 0;
+}
+
+/* Botones en los libros */
+.book button,
+.book .toggle-details {
+    background-color: #8a1957;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.book button:hover,
+.book .toggle-details:hover {
+    background-color: #580712;
+    transform: scale(1.05);
+}
+
+.book button:disabled,
+.book .toggle-details:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.status-strip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0);
+}
+
+.status-strip.red {
+    background-color: red;
+}
+
+.status-strip.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+/* Estilo de paginación */
+.pagination {
+    position: fixed;
+    bottom: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 10; 
+    margin-top: 50px; 
+}
+
+.pagination button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+.pagination button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* Estilos para mensajes de alerta y popups */
+.popup-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    width: 320px;
+    max-width: 85%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.popup-message.success .popup-content {
+    background-color: #28a745;
+    color: white;
+}
+
+.popup-message.warning .popup-content {
+    background-color: #f1c40f;
+    color: #2c3e50;
+}
+
+.popup-message.error .popup-content {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.close-btn {
+    padding: 8px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: #c0392b;
+}
+
+
+/* Transiciones suaves */
+.book:hover img {
+    transform: scale(1.05);
+}
+
+.book:hover h3 {
+    color: #3498db;
+}
+
+.book:hover p {
+    color: #34495e;
+}
+
+/* Estilos de contenido en pantallas pequeñas */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 0 15px;
+    }
+
+    .titulo {
+        font-size: 2rem;
+    }
+
+    .book h3 {
+        font-size: 1.2rem;
+    }
+
+    .book button,
+    .book .toggle-details {
+        padding: 10px 15px;
+    }
+
+    .pagination button {
+        padding: 12px 18px;
+        font-size: 1rem;
+    }
+
+    .popup-content {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        padding: 0 10px;
+    }
+
+    .titulo {
+        font-size: 1.8rem;
+    }
+
+    .book h3 {
+        font-size: 1.1rem;
+    }
+
+    .book button,
+    .book .toggle-details {
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
+
+    .pagination button {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
+    .popup-content {
+        width: 90%;
+    }
+}
+
+/* Animación para la rotación */
+@keyframes rotate-card {
+    0% {
+        transform: rotateY(0);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Clase para activar la rotación */
+.rotate {
+    animation: rotate-card 0.6s ease-out;
+}
