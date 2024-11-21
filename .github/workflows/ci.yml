@@ -49,7 +49,7 @@ jobs:
 
     - name: Import database
       run: |
-        mysql -u root -proot library < database_dump.sql
+        mysql -u root -proot library < library.sql
 
     - name: Install Composer dependencies
       run: composer install
